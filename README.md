@@ -93,32 +93,53 @@ Output (UI + File System)
 
 voice-ai-agent/
 │
-├── app/ # Streamlit UI
-├── api/ # FastAPI backend
-├── core/ # Orchestrator + planner
-├── stt/ # Speech-to-text
-├── nlp/ # NLP tasks (summarizer, language detection)
-├── tools/ # File operations, executor
-├── safety/ # Validation layer
-├── memory/ # Session/history
-├── benchmarking/ # Performance tracking
-├── config/ # Settings
+├── app/
+│   └── main.py
 │
-├── output/ # Safe execution directory
-├── logs/ # Logs
+├── api/
+│   └── server.py
+│
+├── core/
+│   ├── orchestrator.py
+│   └── planner.py
+│
+├── stt/
+│   └── whisper_local.py
+│
+├── nlp/
+│   ├── summarizer.py
+│   └── language_detector.py
+│
+├── tools/
+│   ├── file_manager.py
+│   └── executor.py
+│
+├── safety/
+│   └── validator.py
+│
+├── memory/
+│   └── history_store.py
+│
+├── benchmarking/
+│   ├── metrics.py
+│   └── logger.py
+│
+├── config/
+│   └── settings.yaml
+│
+├── output/        ← files created here
+├── logs/          ← logs stored here
 │
 ├── requirements.txt
-└── README.md
-
-
----
+├── README.md
 
 ## ▶️ How to Run
 
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/voice-ai-agent.git
+git clone https://github.com/Priyalparmar03/voice-ai-agent
+
 cd voice-ai-agent
 2️⃣ Create Virtual Environment
 python -m venv venv
