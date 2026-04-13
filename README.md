@@ -56,3 +56,117 @@ The system is designed to be **fully local (no paid APIs)**, privacy-friendly, a
 ---
 
 ## 🏗️ System Architecture
+Audio Input
+↓
+Speech-to-Text (Whisper)
+↓
+Language Detection
+↓
+Intent Planner (Rule + LLM)
+↓
+Safety Validator
+↓
+User Confirmation
+↓
+Task Executor
+↓
+Output (UI + File System)
+
+
+---
+
+## ⚙️ Tech Stack
+
+| Component        | Technology |
+|----------------|-----------|
+| STT            | Whisper (local) |
+| LLM            | Ollama (Phi model) |
+| Backend        | FastAPI |
+| Frontend       | Streamlit |
+| Language Detection | langdetect |
+| Execution      | Python (OS-safe operations) |
+
+---
+
+## 📂 Project Structure
+
+
+voice-ai-agent/
+│
+├── app/ # Streamlit UI
+├── api/ # FastAPI backend
+├── core/ # Orchestrator + planner
+├── stt/ # Speech-to-text
+├── nlp/ # NLP tasks (summarizer, language detection)
+├── tools/ # File operations, executor
+├── safety/ # Validation layer
+├── memory/ # Session/history
+├── benchmarking/ # Performance tracking
+├── config/ # Settings
+│
+├── output/ # Safe execution directory
+├── logs/ # Logs
+│
+├── requirements.txt
+└── README.md
+
+
+---
+
+## ▶️ How to Run
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/your-username/voice-ai-agent.git
+cd voice-ai-agent
+2️⃣ Create Virtual Environment
+python -m venv venv
+venv\Scripts\activate   # Windows
+3️⃣ Install Dependencies
+pip install -r requirements.txt
+4️⃣ Install and Run Ollama
+
+Install Ollama → then:
+
+ollama run phi
+5️⃣ Start Backend
+uvicorn api.server:app --reload
+6️⃣ Start UI
+streamlit run app/main.py
+🧪 Example Usage
+🎤 Input:
+
+"Create a file named test.txt"
+
+🧠 System Output:
+Intent: create_file
+File created in /output/test.txt
+⚠️ Safety Design
+All file operations restricted to /output/
+No overwrite of system files
+Path validation
+User confirmation required
+🧠 Challenges & Solutions
+Challenge	Solution
+LLM JSON inconsistency	Hybrid rule-based system
+Windows encoding error	UTF-8 encoding in subprocess
+Low system resources	Switched to lightweight Phi model
+Silent UI failure	Debug pipeline + structured response
+
+echnical Article
+
+Published on:
+👉 Medium : https://medium.com/@parmarpriyal1603/building-a-multilingual-voice-controlled-ai-agent-with-safety-mechanisms-fully-local-free-6a6c1623f186
+
+
+🚀 Future Improvements
+🎤 Real-time microphone input
+🇮🇳 Better Indian language support (Gujarati, Hindi NLP)
+🧠 Advanced memory (vector database)
+🌐 Deployment (Docker / Cloud)
+💬 Chat-style UI
+👨‍💻 Author
+
+Priyal Parmar
+https://www.linkedin.com/in/parmar-priyal-parfulbhai-72172a227/
