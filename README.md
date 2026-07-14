@@ -88,39 +88,6 @@ Output (UI + File System)
 
 ---
 
-## 📂 Project Structure
-
-
-voice-ai-agent/
-│
-├── app/main.py
-│
-├── api/server.py
-│
-├── core/ orchestrator.py   , planner.py
-│
-├── stt/ whisper_local.py
-│
-├── nlp/ summarizer.py  language_detector.py
-│
-├── tools/ file_manager.py   executor.py
-│
-├── safety/ validator.py
-│
-├── memory/ history_store.py
-│
-├── benchmarking/ metrics.py logger.py
-│
-├── config/ settings.yaml
-│
-├── output/        ← files created here
-├── logs/          ← logs stored here
-│
-├── requirements.txt
-├── README.md
-
-## ▶️ How to Run
-
 ### 1️⃣ Clone Repository
 
 ```bash
