@@ -173,7 +173,8 @@ Published on:
 🧠 Advanced memory (vector database)
 🌐 Deployment (Docker / Cloud)
 💬 Chat-style UI
-👨‍💻 Author
+
+
+Author
 
 Priyal Parmar
-https://www.linkedin.com/in/parmar-priyal-parfulbhai-72172a227/
